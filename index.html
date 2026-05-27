@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio Pepe — Ingegnere Informatico & AI Engineer</title>
+  <title>Antonio Pepe — Ingegnere Informatico</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
@@ -13,7 +13,16 @@
 
   <nav>
     <div class="logo">Antonio Pepe</div>
-    <ul>
+    
+    <div class="hamburger" id="hamburger" style="cursor: pointer; color: var(--accent);">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </div>
+
+    <ul id="nav-menu">
       <li><a href="#about" data-i18n="nav_about">About</a></li>
       <li><a href="#education" data-i18n="nav_education">Formazione</a></li>
       <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
@@ -26,14 +35,13 @@
       </li>
     </ul>
   </nav>
-
   <div class="hero" id="home">
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
 
     <span class="hero-tag" data-i18n="hero_tag">Ingegnere Informatico · AI & Data Engineer</span>
 
-    <h1>Antonio<br><em>Pepe.</em></h1>
+    <h1>Antonio<br><em>Pepe</em></h1>
 
     <p class="hero-subtitle" data-i18n="hero_subtitle">
       Laureato in Ingegneria Informatica all'Università di Pisa, attualmente sto frequentando il corso magistrale in
@@ -146,6 +154,7 @@
         <div class="timeline-sub">I.I.S. "G. Peano" · Marsiconuovo (PZ) · 96/100</div>
         <div class="timeline-body" data-i18n="edu_hs_body">
           Percorso scientifico con orientamento tecnico-applicativo, base solida per gli studi ingegneristici successivi.
+          Per tesi di maturità sviluppato un sito web <a href="https://questionariomarsico.altervista.org/">Sito</a>
         </div>
         <span class="badge badge-green">96/100</span>
       </div>
@@ -387,6 +396,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer id="contact">
     <p style="font-family:var(--heading-font);font-size:1.5rem;margin-bottom:1rem;" data-i18n="footer_title">
       Hai un progetto in mente?
@@ -394,6 +404,25 @@
     <p style="margin-bottom:1.5rem" data-i18n="footer_contact">
       Scrivimi a <strong>anthonypepe2004@gmail.com</strong> o chiamami al <strong>+39 320 604 3046</strong>
     </p>
+
+    <!-- Social Links -->
+    <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; align-items: center;">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/antonio.html_?igsh=eHozMm5oYjRqYXM0&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: var(--text); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/profile.php?id=100081818542246" target="_blank" rel="noopener noreferrer" style="color: var(--text); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      </a>
+    </div>
+
     <p style="font-size:0.75rem;color:var(--muted)" data-i18n="footer_copy">
       © 2026 Antonio Pepe · Tutti i diritti riservati ·
       <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>

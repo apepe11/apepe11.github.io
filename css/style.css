@@ -573,19 +573,41 @@
       background: var(--border);
     }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { gap: 1.2rem; }
-      .hero { padding: 6rem 1.5rem 3rem; }
-      section { padding: 4rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .exp-card { flex-direction: column; gap: 1rem; }
-    }
+/* ─── RESPONSIVE (MOBILE & TABLET) ─── */
 
+/* 1. Regole per il Menu Hamburger */
+.hamburger {
+  display: none;
+}
 
-    .repo-card:hover {
-  border-color: var(--accent2);
-  background: var(--surface2);
-  transform: translateY(-4px);
+@media screen and (max-width: 850px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .hamburger { display: block; }
+  
+  nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(11, 12, 16, 0.98);
+    backdrop-filter: blur(18px);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    display: none; 
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+/* 2. Regole per il resto del sito (struttura, griglie, testi) */
+@media (max-width: 768px) {
+  .hero { padding: 6rem 1.5rem 3rem; }
+  section { padding: 4rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .exp-card { flex-direction: column; gap: 1rem; }
 }

@@ -260,3 +260,19 @@ function setLang(lang) {
     btnIt.style.color = "var(--muted)";
   }
 }
+// --- Gestione Menu Hamburger Mobile ---
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+// Apri/Chiudi il menu al click
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Chiudi il menu automaticamente quando si clicca su un link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});
+
