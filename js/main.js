@@ -133,6 +133,9 @@ const translations = {
     footer_title: "Hai un progetto in mente?",
     footer_contact: "Scrivimi a <strong>anthonypepe2004@gmail.com</strong> o chiamami al <strong>+39 320 604 3046</strong>",
     footer_copy: "© 2026 Antonio Pepe · Tutti i diritti riservati · <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>"
+    ,ex_prog: "Fondamenti di Programmazione",
+    ex_alg: "Algoritmi e Strutture Dati",
+    ex_calc: "Esami base di ingegneria",
   },
   en: {
     nav_about: "About",
@@ -141,7 +144,7 @@ const translations = {
     nav_exams: "Exams",
     nav_repo: "My GitHub Repos",
     nav_contact: "Contact",
-    hero_tag: "Computer Engineer · AI & Data Engineer",
+    hero_tag: "Computer Engineer",
     hero_subtitle: "Graduated in Computer Engineering at the University of Pisa, currently attending the Master's Degree in <strong>Artificial Intelligence &amp; Data Engineering</strong>. Passionate about technological innovation, AI, and distributed systems.",
     hero_born: "Born on 04/13/2004",
     hero_scroll: "Scroll",
@@ -227,7 +230,10 @@ const translations = {
     repo3_desc: "Integrated remote health monitoring system for the IoT exam. <strong style=\"color:var(--text)\">Contiki-NG</strong> sensor nodes collect heart rate and O₂ saturation via CoAP; a Python backend saves data to MySQL, and a Tkinter dashboard displays real-time data with automatic clinical risk alerts.",
     footer_title: "Have a project in mind?",
     footer_contact: "Email me at <strong>anthonypepe2004@gmail.com</strong> or call me at <strong>+39 320 604 3046</strong>",
-    footer_copy: "© 2026 Antonio Pepe · All rights reserved · <em>I authorize the processing of my personal data pursuant to Legislative Decree 196/2003 and GDPR 2016/679</em>"
+    footer_copy: "© 2026 Antonio Pepe · All rights reserved · <em>I authorize the processing of my personal data pursuant to Legislative Decree 196/2003 and GDPR 2016/679</em>",
+    ex_prog: "Fondamentals of Programming",
+    ex_alg: "Algorithms & Data Structures",
+    ex_calc: "Basics Engineering Exam",
   }
 };
 
