@@ -284,11 +284,15 @@ if (visitorCounterElement) {
   visitorCounterElement.textContent = `Visitatori: ${currentCount}`;
 }
 
-// Facoltativo: invia un evento custom a Google Analytics se la libreria è caricata
+// Invia pageview esplicito a Google Analytics quando la pagina si carica
 if (typeof gtag === 'function') {
-  gtag('event', 'homepage_view', {
+  // Pageview automatico (dovrebbe essere già inviato da GA)
+  gtag('event', 'page_view');
+  
+  // Evento custom aggiuntivo per tracciare le visite
+  gtag('event', 'homepage_visit', {
     event_category: 'engagement',
-    event_label: 'Visitor counter display',
+    event_label: 'User visited homepage',
   });
 }
 
