@@ -7,9 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
+  
 </head>
 
 <body>
+
 
   <nav>
     <div class="logo">Antonio Pepe</div>
@@ -359,6 +361,33 @@
       <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>
     </p>
   </footer>
+  <!-- Google Analytics loader & config -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52YPMPSVK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-F52YPMPSVK');
+  </script>
+
+  <!-- Send `unique_visitor` event once per browser via gtag -->
+  <script>
+    (function(){
+      const storageKey = 'apepe11_ga_unique_counted_v1';
+      if(!localStorage.getItem(storageKey)){
+        try{
+          if(typeof gtag === 'function'){
+            gtag('event', 'unique_visitor', { event_category: 'engagement', non_interaction: true });
+          } else {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);} 
+            gtag('event', 'unique_visitor', { event_category: 'engagement', non_interaction: true });
+          }
+        }catch(e){}
+        try{ localStorage.setItem(storageKey, Date.now()); }catch(e){}
+      }
+    })();
+  </script>
 
 </body>
 </html>
