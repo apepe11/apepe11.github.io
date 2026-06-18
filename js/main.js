@@ -275,6 +275,23 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
+// Visitor counter locale; Google Analytics traccia le visite reali.
+const visitorCounterElement = document.getElementById('visitor-counter');
+if (visitorCounterElement) {
+  const storageKey = 'visitorCount';
+  const currentCount = Number(localStorage.getItem(storageKey) || 0) + 1;
+  localStorage.setItem(storageKey, currentCount);
+  visitorCounterElement.textContent = `Visitatori: ${currentCount}`;
+}
+
+// Facoltativo: invia un evento custom a Google Analytics se la libreria è caricata
+if (typeof gtag === 'function') {
+  gtag('event', 'homepage_view', {
+    event_category: 'engagement',
+    event_label: 'Visitor counter display',
+  });
+}
+
 // Chiudi il menu automaticamente quando si clicca su un link
 document.querySelectorAll('#nav-menu a').forEach(link => {
   link.addEventListener('click', () => {

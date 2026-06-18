@@ -59,6 +59,17 @@
       letter-spacing: 0.02em;
     }
 
+    .visitor-counter {
+      color: var(--text);
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+
     nav ul {
       display: flex; gap: 2.2rem; list-style: none;
     }
