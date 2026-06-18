@@ -22,7 +22,6 @@
 
   <nav>
     <div class="logo">Antonio Pepe</div>
-    <div class="visitor-counter" id="visitor-counter">Visitatori: 0</div>
     
     <div class="hamburger" id="hamburger" style="cursor: pointer; color: var(--accent);">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -369,24 +368,6 @@
       <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>
     </p>
   </footer>
-  <!-- Send `unique_visitor` event once per browser via gtag -->
-  <script>
-    (function(){
-      const storageKey = 'apepe11_ga_unique_counted_v1';
-      if(!localStorage.getItem(storageKey)){
-        try{
-          if(typeof gtag === 'function'){
-            gtag('event', 'unique_visitor', { event_category: 'engagement', non_interaction: true });
-          } else {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} 
-            gtag('event', 'unique_visitor', { event_category: 'engagement', non_interaction: true });
-          }
-        }catch(e){}
-        try{ localStorage.setItem(storageKey, Date.now()); }catch(e){}
-      }
-    })();
-  </script>
 
 </body>
 </html>

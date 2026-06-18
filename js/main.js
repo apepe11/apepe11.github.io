@@ -275,26 +275,35 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
-// Visitor counter locale; Google Analytics traccia le visite reali.
-const visitorCounterElement = document.getElementById('visitor-counter');
-if (visitorCounterElement) {
-  const storageKey = 'visitorCount';
-  const currentCount = Number(localStorage.getItem(storageKey) || 0) + 1;
-  localStorage.setItem(storageKey, currentCount);
-  visitorCounterElement.textContent = `Visitatori: ${currentCount}`;
+function sendAnalyticsEvent(name, params) {
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params);
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['event', name, params]);
+    }
+  } catch (e) {
+    console.warn(`GA event ${name} non inviato`, e);
+  }
 }
 
-// Invia pageview esplicito a Google Analytics quando la pagina si carica
-if (typeof gtag === 'function') {
-  // Pageview automatico (dovrebbe essere già inviato da GA)
-  gtag('event', 'page_view');
-  
-  // Evento custom aggiuntivo per tracciare le visite
-  gtag('event', 'homepage_visit', {
-    event_category: 'engagement',
-    event_label: 'User visited homepage',
-  });
+function trackUniqueVisitorOnce() {
+  const storageKey = 'apepe11_ga_unique_counted_v1';
+  if (!localStorage.getItem(storageKey)) {
+    sendAnalyticsEvent('unique_visitor', {
+      event_category: 'engagement',
+      non_interaction: true,
+    });
+    try {
+      localStorage.setItem(storageKey, Date.now());
+    } catch (e) {
+      console.warn('Impossibile salvare il flag di visita unica in localStorage', e);
+    }
+  }
 }
+
+trackUniqueVisitorOnce();
 
 // Chiudi il menu automaticamente quando si clicca su un link
 document.querySelectorAll('#nav-menu a').forEach(link => {
