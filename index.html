@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio Pepe — Ingegnere Informatico</title>
+  <title>Antonio Pepe — Space Portfolio</title>
+  <meta name="description" content="Portfolio di Antonio Pepe, Ingegnere Informatico e studente magistrale in Artificial Intelligence & Data Engineering all'Università di Pisa. Scopri i miei progetti software e di intelligenza artificiale.">
+  <meta name="keywords" content="Antonio Pepe, Ingegnere Informatico, AI, Data Engineering, Università di Pisa, HTTP/3, IoT, HeartMusic, SmartHealth, Kotlin, Python">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52YPMPSVK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,368 +15,587 @@
     gtag('js', new Date());
     gtag('config', 'G-F52YPMPSVK');
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
-  
 </head>
 
 <body>
 
+  <!-- Cyber background grid and particle canvas -->
+  <div class="bg-grid"></div>
+  <div class="radial-glow-orbs">
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-purple"></div>
+  </div>
+  <canvas id="particles-canvas"></canvas>
+  <div id="cursor-glow"></div>
 
-  <nav>
-    <div class="logo">Antonio Pepe</div>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-bar"></div>
+  </div>
+
+  <!-- ─── HEADER / NAVIGATION ─── -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">
+      <span>apepe</span>11
+    </a>
     
-    <div class="hamburger" id="hamburger" style="cursor: pointer; color: var(--accent);">
+    <ul id="nav-menu">
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#education" data-i18n="nav_education">Formazione</a></li>
+      <li><a href="#projects" data-i18n="nav_repo">GitHub Repo</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
+      <li>
+        <div class="lang-switch">
+          <button onclick="setLang('it')" class="lang-btn active" id="btn-it">IT</button>
+          <span class="lang-separator">|</span>
+          <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+        </div>
+      </li>
+    </ul>
+
+    <button class="hamburger-toggle" id="hamburger" aria-label="Toggle Menu" style="cursor: pointer;">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
-    </div>
-
-    <ul id="nav-menu">
-      <li><a href="#about" data-i18n="nav_about">About</a></li>
-      <li><a href="#education" data-i18n="nav_education">Formazione</a></li>
-      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-      <li><a href="#repo" data-i18n="nav_repo">My github Repo</a></li>
-      <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
-      <li class="lang-switcher">
-        <button onclick="setLang('it')" id="btn-it" style="font-weight: bold; cursor: pointer; background: none; border: none; font-size: 1rem; color: var(--text);">IT</button> | 
-        <button onclick="setLang('en')" id="btn-en" style="cursor: pointer; background: none; border: none; font-size: 1rem; color: var(--muted);">EN</button>
-      </li>
-    </ul>
+    </button>
   </nav>
-  <div class="hero" id="home">
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
 
-    <span class="hero-tag" data-i18n="hero_tag">Ingegnere Informatico </span>
-
-    <h1>Antonio Pepe</h1>
-
-    <p class="hero-subtitle" data-i18n="hero_subtitle">
-      Laureato in Ingegneria Informatica all'Università di Pisa, attualmente sto frequentando il corso magistrale in
-      <strong>Artificial Intelligence &amp; Data Engineering</strong>. Appassionato di innovazione tecnologica,
-      AI e sistemi distribuiti.
-    </p>
-
-    <div class="hero-contacts">
-      <a href="mailto:anthonypepe2004@gmail.com" class="chip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        anthonypepe2004@gmail.com
-      </a>
-      <span class="chip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Paterno di Lucania, PZ
-      </span>
-      <span class="chip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span data-i18n="hero_born">Nato il 13/04/2004</span>
-      </span>
-    </div>
-
-  </div>
-
-  <section id="about">
-    <span class="section-label" data-i18n="about_label">Chi sono</span>
-    <h2 data-i18n="about_title">Profilo Professionale</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p data-i18n="about_p1">
-          Laureato in <strong>Ingegneria Informatica</strong> presso l'Università di Pisa, ho sviluppato solide competenze nello sviluppo software, architetture cloud e sistemi
-          di gestione dati.
+  <!-- ─── HERO SECTION ─── -->
+  <header class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="cyber-badge" data-i18n="hero_tag">Ingegnere Informatico · AI & Data Engineering</div>
+        
+        <h1 class="hero-title">
+          <span>ANTONIO PEPE</span>
+        </h1>
+        
+        <div class="hero-typing-container">
+          <span class="hero-subtitle" id="typewriter-text" data-i18n="hero_typed_fallback">Ingegneria Informatica @ UniPi</span>
+        </div>
+        
+        <p class="hero-description" data-i18n="hero_subtitle">
+          Laureato in Ingegneria Informatica all'Università di Pisa, attualmente sto frequentando il corso magistrale in
+          <strong>Artificial Intelligence &amp; Data Engineering</strong>. Appassionato di innovazione tecnologica,
+          AI e sistemi distribuiti.
         </p>
-        <p data-i18n="about_p2">
-          Attualmente sto approfondendo la mia specializzazione nel corso magistrale in
-          <strong>Artificial Intelligence and Data Engineering (AIDE)</strong> presso lo stesso Ateneo,
-          con focus su intelligenza artificiale, analisi avanzata dei dati e sistemi software complessi.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section id="education">
-    <span class="section-label" data-i18n="edu_label">Formazione</span>
-    <h2 data-i18n="edu_title">Percorso Accademico</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-date" data-i18n="edu_master_date">Mar 2026 — In corso</div>
-        <div class="timeline-title" data-i18n="edu_master_title">Laurea Magistrale in AI & Data Engineering</div>
-        <div class="timeline-sub" data-i18n="edu_master_sub">Università di Pisa · AIDE</div>
-        <div class="timeline-body" data-i18n="edu_master_body">
-          Specializzazione focalizzata su intelligenza artificiale, analisi avanzata dei dati e sistemi software complessi.
-          Percorso d'eccellenza che combina le più recenti tecnologie AI con solide basi ingegneristiche.
+        
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary" data-i18n="btn_contact_me">
+            Contattami
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </a>
+          <a href="#projects" class="btn-secondary" data-i18n="btn_view_work">
+            Vedi Progetti
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+          </a>
         </div>
-        <span class="badge badge-green" data-i18n="badge_ongoing">In corso</span>
-        <span class="badge badge-purple">AI · ML · Data</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date" data-i18n="edu_bach_date">Ott 2022 — Apr 2026</div>
-        <div class="timeline-title" data-i18n="edu_bach_title">Laurea Triennale in Ingegneria Informatica (L-8)</div>
-        <div class="timeline-sub" data-i18n="edu_bach_sub">Università di Pisa</div>
-        <div class="timeline-body" data-i18n="edu_bach_body">
-          Eccellente background quantitativo e tecnologico, con menzione speciale per gli esami ad alto impatto analitico
-          e progettuale. <strong>Tesi:</strong> valutazione del consumo energetico di diverse implementazioni del protocollo
-          HTTP/3 su dispositivi IoT (Raspberry Pi 3B+).
-        </div>
-        <span class="badge badge-purple" data-i18n="badge_thesis">Tesi: HTTP/3 su IoT</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">2017 — 2022</div>
-        <div class="timeline-title" data-i18n="edu_hs_title">Diploma di Liceo Scientifico — Scienze Applicate</div>
-        <div class="timeline-sub">I.I.S. "G. Peano" · Marsiconuovo (PZ)</div>
-        <div class="timeline-body" data-i18n="edu_hs_body">
-          Percorso scientifico con orientamento tecnico-applicativo, base solida per gli studi ingegneristici successivi.
-          Per tesi di maturità sviluppato un sito web <a href="https://questionariomarsico.altervista.org/">Sito</a>
+        
+        <div class="hero-stats-chips">
+          <a href="mailto:anthonypepe2004@gmail.com" class="cyber-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            anthonypepe2004@gmail.com
+          </a>
+          <div class="cyber-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Paterno di Lucania, PZ
+          </div>
+          <div class="cyber-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span data-i18n="hero_born">Nato il 13/04/2004</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section id="skills">
-    <span class="section-label" data-i18n="skills_label">Competenze</span>
-    <h2 data-i18n="skills_title">Skill Tecniche</h2>
-
-    <div class="skills-grid">
-      <div class="skill-card">
-        <span class="skill-icon">💻</span>
-        <h3 data-i18n="skill_prog">Linguaggi di Programmazione</h3>
-        <div class="tag-list">
-          <span class="tag">C</span><span class="tag">C++</span><span class="tag">JavaScript</span>
-          <span class="tag">PHP</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
-          <span class="tag">Kotlin</span><span class="tag">Verilog</span><span class="tag">Assembly x86/x64</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <span class="skill-icon">☁️</span>
-        <h3>Data & Cloud</h3>
-        <div class="tag-list">
-          <span class="tag">MySQL</span><span class="tag">Cloud Computing</span>
-          <span class="tag" data-i18n="skill_algo">Algoritmi & Strutture Dati</span>
-          <span class="tag" data-i18n="skill_net">Reti Informatiche</span>
-          <span class="tag">IoT</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <span class="skill-icon">🤖</span>
-        <h3 data-i18n="skill_ai">Intelligenza Artificiale</h3>
-        <div class="tag-list">
-          <span class="tag">LLM</span><span class="tag">Machine Learning</span>
-          <span class="tag">AI Prompt Engineering</span><span class="tag">Data Engineering</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <span class="skill-icon">🔌</span>
-        <h3 data-i18n="skill_iot">IoT & Sistemi Embedded</h3>
-        <div class="tag-list">
-          <span class="tag">Raspberry Pi</span><span class="tag" data-i18n="skill_iot_net">Reti IoT</span>
-          <span class="tag" data-i18n="skill_ind">Algoritmi Industriali</span><span class="tag">HTTP/3</span>
-          <span class="tag" data-i18n="skill_protocols">Protocolli di Rete</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <span class="skill-icon">🛠️</span>
-        <h3 data-i18n="skill_tools">Strumenti & OS</h3>
-        <div class="tag-list">
-          <span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">macOS</span>
-          <span class="tag">Microsoft Office</span><span class="tag">Git</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <span class="skill-icon">🎵</span>
-        <h3 data-i18n="skill_media">Produzione Multimediale</h3>
-        <div class="tag-list">
-          <span class="tag">FL Studio 20</span><span class="tag">Logic Pro X</span>
-          <span class="tag">iMovie</span><span class="tag">Movie Maker</span>
+      
+      <!-- Hexagonal/HUD profile photo from github -->
+      <div class="hero-visual">
+        <div class="avatar-hud-wrapper">
+          <div class="hud-ring hud-ring-1"></div>
+          <div class="hud-ring hud-ring-2"></div>
+          <div class="hud-ring hud-ring-3"></div>
+          
+          <div class="avatar-container">
+            <div class="avatar-scanner"></div>
+            <img src="https://github.com/apepe11.png" alt="Antonio Pepe GitHub Profile Picture" class="avatar-image" id="profile-avatar">
+          </div>
+          
+          <!-- Live metrics cards -->
+          <div class="hud-stat hud-stat-1">
+            <span class="lbl">Github repos</span>
+            <span class="val" id="hud-repos-count">--</span>
+          </div>
+          
+          <div class="hud-stat hud-stat-2">
+            <span class="lbl">followers</span>
+            <span class="val" id="hud-followers-count">--</span>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <div class="divider"></div>
+    <a href="#about" class="scroll-hint">
+      <span data-i18n="hero_scroll">Scorri</span>
+      <div class="scroll-hint-mouse">
+        <div class="scroll-hint-wheel"></div>
+      </div>
+    </a>
+  </header>
 
-  <section>
-    <span class="section-label" data-i18n="cert_label">Certificazioni</span>
-    <h2 data-i18n="cert_title">Corsi & Certificazioni</h2>
-    <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-      <div class="skill-card">
-        <span class="skill-icon">🏆</span>
-        <h3>EIPASS</h3>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.5rem" data-i18n="cert_eipass">European Informatics Passport — conseguita nel 2021</p>
+  <!-- ─── SEZIONE ABOUT / CHI SONO ─── -->
+  <main>
+    <section id="about">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="about_label">Chi sono</div>
+        <h2 class="section-title" data-i18n="about_title">Profilo Professionale</h2>
       </div>
-      <div class="skill-card">
-        <span class="skill-icon">🎓</span>
-        <h3>Cambridge B2</h3>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.5rem" data-i18n="cert_cambridge">Cambridge Assessment English · Punteggio 158/160 · 2021</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">📱</span>
-        <h3>Samsung Let's App</h3>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.5rem" data-i18n="cert_samsung">PCTO Partnership Samsung · 71 ore · 2020–2021</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🏭</span>
-        <h3>JA Italia / ENI</h3>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.5rem" data-i18n="cert_eni">Corporate University · Percorso PCTO · 2020–2021</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🎮</span>
-        <h3 data-i18n="cert_game_title">Gamification & Algoritmi</h3>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.5rem" data-i18n="cert_game_desc">Progetti PON · 120 ore · pensiero computazionale · 2019–2021</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section>
-    <span class="section-label" data-i18n="exp_label">Esperienze</span>
-    <h2 data-i18n="exp_title">Esperienza Complementare</h2>
-
-    <div class="exp-card">
-      <div class="exp-icon">🏊</div>
-      <div class="exp-content">
-        <h3 data-i18n="exp_job">Bagnino di Salvataggio</h3>
-        <div class="exp-where" data-i18n="exp_where">Hotel Kiris (SA.TRO S.R.L.) · Viggiano · Stagioni Estive 2021–2025</div>
-        <p data-i18n="exp_desc">
-          Brevetto ufficiale della Società Nazionale di Salvamento con abilitazione <strong>BLS-AED</strong>
-          (Rianimazione e Defibrillazione). Esperienza fondamentale per lo sviluppo di competenze critiche:
-          gestione avanzata dello stress, tempestività decisionale in situazioni d'emergenza,
-          vigilanza attiva e alto senso di responsabilità.
-        </p>
-        <div style="margin-top:0.8rem">
-          <span class="badge badge-amber" data-i18n="badge_bls">BLS-AED Certificato</span>
-          <span class="badge badge-green" data-i18n="badge_emerg">Gestione Emergenze</span>
+      
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about_p1">
+            Laureato in <strong>Ingegneria Informatica</strong> presso l'Università di Pisa, ho sviluppato solide competenze nello sviluppo software, architetture cloud e sistemi di gestione dati.
+          </p>
+          <p data-i18n="about_p2">
+            Attualmente sto approfondendo la mia specializzazione nel corso magistrale in
+            <strong>Artificial Intelligence and Data Engineering (AIDE)</strong> presso lo stesso Ateneo,
+            con focus su intelligenza artificiale, analisi avanzata dei dati e sistemi software complessi.
+          </p>
+          <p data-i18n="about_p3">
+            Unisco una profonda passione per l'<strong>innovazione tecnologica</strong> ad eccellenti capacità di problem solving e una forte attitudine al lavoro di squadra, maturate sia in contesti progettuali complessi che in esperienze dinamiche sul campo.
+          </p>
+          
+          <!-- Mini local stats cards -->
+          <div class="stats-cards-grid">
+            <div class="metric-card">
+              <div class="metric-num" data-i18n="stat_degree_val">AIDE</div>
+              <div class="metric-lbl" data-i18n="stat_degree">Percorso Magistrale</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num" data-i18n="stat_cfu_val">3+ Anni</div>
+              <div class="metric-lbl" data-i18n="stat_cfu">Sviluppo Software</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num">B2</div>
+              <div class="metric-lbl" data-i18n="stat_english">Cambridge English</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num">100%</div>
+              <div class="metric-lbl" data-i18n="stat_passion">Passione AI & IoT</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tech Console/Shell Simulation -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="t-btn t-close"></span>
+              <span class="t-btn t-min"></span>
+              <span class="t-btn t-max"></span>
+            </div>
+            <div class="terminal-title">apepe11@systems-console</div>
+            <div style="width: 38px;"></div>
+          </div>
+          <div class="terminal-body">
+            <div class="command">systemctl status apepe11-developer.service</div>
+            <div class="output">
+              ● apepe11-developer.service - Antonio Pepe Developer Profile<br>
+              &nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/apepe11-developer.service; enabled)<br>
+              &nbsp;&nbsp;&nbsp;Active: <span style="color: #22c55e;">active (running)</span> since 2022-10-01<br>
+              &nbsp;&nbsp;&nbsp;Main PID: 13042004 (birth_date)<br>
+              &nbsp;&nbsp;&nbsp;Status: "Specializing in AI algorithms & IoT network protocol validations"
+            </div>
+            <div class="command">cat spec.json</div>
+            <div class="output output-json" id="terminal-json-output">
+              {
+                "university": "Università di Pisa",
+                "department": "Ingegneria dell'Informazione",
+                "degree": "Artificial Intelligence & Data Engineering",
+                "interests": ["Machine Learning", "IoT HTTP/3", "Embedded Services"],
+                "pioneering": true
+              }
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider"></div>
-
-  <section>
-    <span class="section-label" data-i18n="lang_label">Lingue</span>
-    <h2 data-i18n="lang_title">Competenze Linguistiche</h2>
-    <div class="lang-grid">
-      <div class="lang-card">
-        <div class="lang-name" data-i18n="lang_it">Italiano 🇮🇹</div>
-        <div class="lang-level" data-i18n="lang_it_lvl">Madrelingua</div>
+    <!-- ─── SEZIONE SKILLS ─── -->
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="skills_label">Competenze</div>
+        <h2 class="section-title" data-i18n="skills_title">Skill Tecniche & Strumenti</h2>
       </div>
-      <div class="lang-card">
-        <div class="lang-name" data-i18n="lang_en">Inglese 🇬🇧</div>
-        <div class="lang-level">B2 — Upper Intermediate</div>
-        <div class="lang-note" data-i18n="lang_en_note">Cambridge Assessment English · 158/160 (2021)<br>Idoneità Universitaria UniPi (2023)</div>
+      
+      <div class="skills-container">
+        <!-- Panel 1: AI -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">🤖</span>
+            <h3 class="panel-title" data-i18n="skill_ai">Intelligenza Artificiale</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">Machine Learning</span>
+            <span class="cyber-tag">Data Engineering</span>
+            <span class="cyber-tag">LLM Integration</span>
+            <span class="cyber-tag">Prompt Engineering</span>
+            <span class="cyber-tag">Neural Networks</span>
+            <span class="cyber-tag">Data Pipelines</span>
+          </div>
+        </div>
+
+        <!-- Panel 2: Languages -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">💻</span>
+            <h3 class="panel-title" data-i18n="skill_prog">Linguaggi</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">C</span>
+            <span class="cyber-tag">C++</span>
+            <span class="cyber-tag">Kotlin</span>
+            <span class="cyber-tag">Python</span>
+            <span class="cyber-tag">JavaScript</span>
+            <span class="cyber-tag">PHP</span>
+            <span class="cyber-tag">HTML5 / CSS3</span>
+            <span class="cyber-tag">Verilog</span>
+            <span class="cyber-tag">Assembly x86</span>
+          </div>
+        </div>
+
+        <!-- Panel 3: Cloud & DB -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">☁️</span>
+            <h3 class="panel-title">Data &amp; Cloud</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">MySQL</span>
+            <span class="cyber-tag">PostgreSQL</span>
+            <span class="cyber-tag">Cloud Computing</span>
+            <span class="cyber-tag" data-i18n="skill_algo">Algoritmi &amp; ASD</span>
+            <span class="cyber-tag" data-i18n="skill_net">Reti Informatiche</span>
+            <span class="cyber-tag">Docker</span>
+            <span class="cyber-tag">Flask backend</span>
+          </div>
+        </div>
+
+        <!-- Panel 4: IoT & Networks -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">🔌</span>
+            <h3 class="panel-title" data-i18n="skill_iot">IoT &amp; Sistemi Embedded</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">Raspberry Pi</span>
+            <span class="cyber-tag">Contiki-NG</span>
+            <span class="cyber-tag">CoAP Protocol</span>
+            <span class="cyber-tag">HTTP/3 IoT</span>
+            <span class="cyber-tag" data-i18n="skill_iot_net">Reti IoT</span>
+            <span class="cyber-tag" data-i18n="skill_protocols">Protocolli di Rete</span>
+            <span class="cyber-tag">Otii Arc Analyzer</span>
+          </div>
+        </div>
+
+        <!-- Panel 5: Tools & OS -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">🛠️</span>
+            <h3 class="panel-title" data-i18n="skill_tools">Strumenti &amp; OS</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">Linux</span>
+            <span class="cyber-tag">Git &amp; GitHub</span>
+            <span class="cyber-tag">Windows OS</span>
+            <span class="cyber-tag">macOS</span>
+            <span class="cyber-tag">VS Code</span>
+            <span class="cyber-tag">Microsoft Office</span>
+          </div>
+        </div>
+
+        <!-- Panel 6: Media -->
+        <div class="skills-panel">
+          <div class="panel-header">
+            <span class="panel-icon">🎵</span>
+            <h3 class="panel-title" data-i18n="skill_media">Produzione Multimediale</h3>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="cyber-tag">FL Studio 20</span>
+            <span class="cyber-tag">Logic Pro X</span>
+            <span class="cyber-tag">Audio Engineering</span>
+            <span class="cyber-tag">iMovie</span>
+            <span class="cyber-tag">Movie Maker</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider"></div>
-
-  <section id="repo">
-    <span class="section-label">Open Source</span>
-    <h2 data-i18n="repo_title">I Miei Progetti GitHub</h2>
-
-    <p style="text-align:center; margin-bottom:2rem;">
-      <a href="https://github.com/apepe11?tab=repositories" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:none; font-weight:500; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1';">
-        Qui troverete tutte le mie repo →
-      </a>
-    </p>
-
-    <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));" >
-      <a href="https://github.com/apepe11/ValuationEneryConsumptionVariousVersionsHTTP3" target="_blank" rel="noopener noreferrer" class="skill-card repo-card" style="text-decoration:none; display:block;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
-          <span class="skill-icon" style="margin-bottom:0;">⚡</span>
-          <svg style="width:18px;height:18px;color:var(--muted);flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    <!-- ─── SEZIONE EDUCATION / ACCADEMIA ─── -->
+    <section id="education">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="edu_label">Formazione</div>
+        <h2 class="section-title" data-i18n="edu_title">Percorso Accademico</h2>
+      </div>
+      
+      <div class="edu-timeline">
+        <!-- Master's Degree -->
+        <div class="edu-item">
+          <div class="edu-date" data-i18n="edu_master_date">Mar 2026 — In corso</div>
+          <div class="edu-card">
+            <h3 class="edu-title" data-i18n="edu_master_title">Laurea Magistrale in AI &amp; Data Engineering</h3>
+            <div class="edu-school" data-i18n="edu_master_sub">Università di Pisa · AIDE</div>
+            <p class="edu-desc" data-i18n="edu_master_body">
+              Specializzazione focalizzata su intelligenza artificiale, analisi avanzata dei dati e sistemi software complessi.
+              Percorso d'eccellenza che combina le più recenti tecnologie AI con solide basi ingegneristiche.
+            </p>
+            <div class="badge-wrap">
+              <span class="edu-badge edu-badge-cyan" data-i18n="badge_ongoing">In corso</span>
+              <span class="edu-badge edu-badge-purple">AI · ML · Data</span>
+            </div>
+          </div>
         </div>
-        <h3 style="font-family:var(--heading-font); font-size:1.05rem; margin-bottom:0.6rem; color:var(--text);">HTTP/3 Energy Valuation</h3>
-        <p style="color:var(--muted); font-size:0.85rem; line-height:1.6; font-weight:300; margin-bottom:1rem;" data-i18n="repo1_desc">
-          Progetto di tesi triennale. Misura il consumo energetico del protocollo HTTP/3 nelle tre implementazioni principali
-          — <strong style="color:var(--text)">Quiche, OpenSSL e Ngtcp2</strong> — su dispositivi IoT (Raspberry Pi 3B+),
-          con automazione via Otii Arc e analisi statistica in Python.
-        </p>
-        <div class="tag-list">
-          <span class="tag">Python</span><span class="tag">HTTP/3</span><span class="tag">IoT</span><span class="tag">Raspberry Pi</span><span class="tag" data-i18n="tag_thesis">Tesi</span>
-        </div>
-      </a>
 
-      <a href="https://github.com/apepe11/HeartMusic" target="_blank" rel="noopener noreferrer" class="skill-card repo-card" style="text-decoration:none; display:block;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
-          <span class="skill-icon" style="margin-bottom:0;">🎵</span>
-          <svg style="width:18px;height:18px;color:var(--muted);flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <!-- Bachelor's Degree -->
+        <div class="edu-item">
+          <div class="edu-date" data-i18n="edu_bach_date">Ott 2022 — Apr 2026</div>
+          <div class="edu-card">
+            <h3 class="edu-title" data-i18n="edu_bach_title">Laurea Triennale in Ingegneria Informatica (L-8)</h3>
+            <div class="edu-school" data-i18n="edu_bach_sub">Università di Pisa</div>
+            <p class="edu-desc" data-i18n="edu_bach_body">
+              Eccellente background quantitativo e tecnologico, con menzione speciale per gli esami ad alto impatto analitico
+              e progettuale. <strong>Tesi:</strong> valutazione del consumo energetico di diverse implementazioni del protocollo
+              HTTP/3 su dispositivi IoT (Raspberry Pi 3B+).
+            </p>
+            <div class="badge-wrap">
+              <span class="edu-badge edu-badge-purple" data-i18n="badge_thesis">Tesi: HTTP/3 su IoT</span>
+              <span class="edu-badge edu-badge-cyan">IoT · Embedded Systems</span>
+            </div>
+          </div>
         </div>
-        <h3 style="font-family:var(--heading-font); font-size:1.05rem; margin-bottom:0.6rem; color:var(--text);">HeartMusic</h3>
-        <p style="color:var(--muted); font-size:0.85rem; line-height:1.6; font-weight:300; margin-bottom:1rem;" data-i18n="repo2_desc">
-          App Android che unisce musica e benessere emotivo. Monitora il battito cardiaco tramite smartwatch (Wear OS) e dispositivo EEG
-          per suggerire playlist personalizzate in base allo stato d'umore. Stack: <strong style="color:var(--text)">Kotlin + Jetpack Compose, Flask, PostgreSQL, Docker</strong>.
-          Progetto di gruppo (Mobile & Social Sensing Systems).
-        </p>
-        <div class="tag-list">
-          <span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Wear OS</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">ML</span>
-        </div>
-      </a>
 
-      <a href="https://github.com/apepe11/SmartHealth" target="_blank" rel="noopener noreferrer" class="skill-card repo-card" style="text-decoration:none; display:block;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
-          <span class="skill-icon" style="margin-bottom:0;">🏥</span>
-          <svg style="width:18px;height:18px;color:var(--muted);flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <!-- High School Diploma -->
+        <div class="edu-item">
+          <div class="edu-date">2017 — 2022</div>
+          <div class="edu-card">
+            <h3 class="edu-title" data-i18n="edu_hs_title">Diploma di Liceo Scientifico — Scienze Applicate</h3>
+            <div class="edu-school">I.I.S. "G. Peano" · Marsiconuovo (PZ)</div>
+            <p class="edu-desc" data-i18n="edu_hs_body">
+              Percorso scientifico con orientamento tecnico-applicativo, base solida per gli studi ingegneristici successivi.
+              Per la tesi di maturità ho sviluppato un sito web per la somministrazione di questionari d'orientamento.
+            </p>
+            <div class="badge-wrap">
+              <span class="edu-badge edu-badge-cyan" style="background: rgba(255,255,255,0.03); color: var(--text-secondary); border-color: var(--border-glass);">Liceo Scientifico</span>
+            </div>
+          </div>
         </div>
-        <h3 style="font-family:var(--heading-font); font-size:1.05rem; margin-bottom:0.6rem; color:var(--text);">SmartHealth IoT</h3>
-        <p style="color:var(--muted); font-size:0.85rem; line-height:1.6; font-weight:300; margin-bottom:1rem;" data-i18n="repo3_desc">
-          Sistema integrato di monitoraggio remoto della salute per l'esame di IoT. Nodi sensori
-          <strong style="color:var(--text)">Contiki-NG</strong> raccolgono frequenza cardiaca e saturazione O₂ via CoAP,
-          un backend Python salva su MySQL e una dashboard Tkinter mostra i dati in tempo reale con allerta automatica al rischio clinico.
-        </p>
-        <div class="tag-list">
-          <span class="tag">C / Contiki-NG</span><span class="tag">Python</span><span class="tag">CoAP</span><span class="tag">MySQL</span><span class="tag">Machine Learning</span><span class="tag">IoT</span>
-        </div>
-      </a>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- ─── SEZIONE DYNAMIC GITHUB PROJECTS ─── -->
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-subtitle">Open Source</div>
+        <h2 class="section-title" data-i18n="repo_title">I Miei Progetti GitHub</h2>
+      </div>
+
+      <!-- Controls: search and filter -->
+      <div class="projects-controls">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="repo-search" class="search-input" placeholder="Cerca progetto..." data-i18n-placeholder="search_placeholder">
+        </div>
+        <div class="filter-buttons" id="repo-filters">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tutti</button>
+          <button class="filter-btn" data-filter="Python">Python</button>
+          <button class="filter-btn" data-filter="Kotlin">Kotlin</button>
+          <button class="filter-btn" data-filter="C">C / C++</button>
+        </div>
+      </div>
+
+      <!-- Grid of repositories -->
+      <div class="repos-grid" id="repos-container">
+        <!-- Skeleton loaders will be dynamically placed here by JS and then replaced by actual cards -->
+        <div class="skeleton-card">
+          <div class="skeleton-header">
+            <div class="skeleton-icon"></div>
+            <div class="skeleton-link"></div>
+          </div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text-1"></div>
+          <div class="skeleton-text-2"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton-lang"></div>
+            <div class="skeleton-stats"></div>
+          </div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-header">
+            <div class="skeleton-icon"></div>
+            <div class="skeleton-link"></div>
+          </div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text-1"></div>
+          <div class="skeleton-text-2"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton-lang"></div>
+            <div class="skeleton-stats"></div>
+          </div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-header">
+            <div class="skeleton-icon"></div>
+            <div class="skeleton-link"></div>
+          </div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text-1"></div>
+          <div class="skeleton-text-2"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton-lang"></div>
+            <div class="skeleton-stats"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SEZIONE CERTIFICAZIONI ─── -->
+    <section id="certifications">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="cert_label">Certificazioni</div>
+        <h2 class="section-title" data-i18n="cert_title">Corsi &amp; Certificazioni</h2>
+      </div>
+
+      <div class="certs-grid">
+        <!-- Cambridge -->
+        <div class="cert-card">
+          <div class="cert-icon">🇬🇧</div>
+          <h3 class="cert-title">Cambridge B2</h3>
+          <p class="cert-desc" data-i18n="cert_cambridge">Cambridge Assessment English · Punteggio 158/160 · conseguita nel 2021</p>
+        </div>
+
+        <!-- EIPASS -->
+        <div class="cert-card">
+          <div class="cert-icon">🏆</div>
+          <h3 class="cert-title">EIPASS 7 Moduli</h3>
+          <p class="cert-desc" data-i18n="cert_eipass">European Informatics Passport — Certificazione delle competenze informatiche primarie, conseguita nel 2021</p>
+        </div>
+
+        <!-- Samsung Let's App -->
+        <div class="cert-card">
+          <div class="cert-icon">📱</div>
+          <h3 class="cert-title">Samsung Let's App</h3>
+          <p class="cert-desc" data-i18n="cert_samsung">PCTO in collaborazione con Samsung, focalizzato sul design e sviluppo di app mobile (71 ore, 2020-2021)</p>
+        </div>
+
+        <!-- JA Italia / ENI -->
+        <div class="cert-card">
+          <div class="cert-icon">🏢</div>
+          <h3 class="cert-title">JA Italia &amp; ENI</h3>
+          <p class="cert-desc" data-i18n="cert_eni">Corporate University · Percorso formativo PCTO sulle dinamiche di impresa ed energetiche (2020-2021)</p>
+        </div>
+
+        <!-- Gamification & Algoritmi -->
+        <div class="cert-card">
+          <div class="cert-icon">🎮</div>
+          <h3 class="cert-title" data-i18n="cert_game_title">Gamification &amp; Algoritmi</h3>
+          <p class="cert-desc" data-i18n="cert_game_desc">Progetti PON focalizzati sul pensiero computazionale applicato e progettazione algoritmica (120 ore, 2019-2021)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SEZIONE ESPERIENZE EXTRACURRICULARI ─── -->
+    <section id="experiences">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="exp_label">Esperienze</div>
+        <h2 class="section-title" data-i18n="exp_title">Esperienza Complementare</h2>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-badge-icon">🏊</div>
+        <div class="exp-info">
+          <h3 data-i18n="exp_job">Bagnino di Salvataggio</h3>
+          <div class="exp-place" data-i18n="exp_where">Hotel Kiris (SA.TRO S.R.L.) · Viggiano · Stagioni Estive 2021–2025</div>
+          <p class="exp-desc" data-i18n="exp_desc">
+            Brevetto ufficiale della Società Nazionale di Salvamento con abilitazione <strong>BLS-AED</strong>
+            (Rianimazione e Defibrillazione). Esperienza fondamentale per lo sviluppo di competenze relazionali e critiche:
+            gestione avanzata dello stress, tempestività decisionale in situazioni d'emergenza,
+            vigilanza attiva e alto senso di responsabilità.
+          </p>
+          <div class="badge-wrap">
+            <span class="edu-badge edu-badge-purple" data-i18n="badge_bls">BLS-AED Certificato</span>
+            <span class="edu-badge edu-badge-cyan" data-i18n="badge_emerg">Gestione Emergenze</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SEZIONE LINGUE ─── -->
+    <section id="languages">
+      <div class="section-header">
+        <div class="section-subtitle" data-i18n="lang_label">Lingue</div>
+        <h2 class="section-title" data-i18n="lang_title">Competenze Linguistiche</h2>
+      </div>
+
+      <div class="langs-container">
+        <!-- Italian -->
+        <div class="lang-card">
+          <div class="lang-header">
+            <div class="lang-flag-name">Italiano 🇮🇹</div>
+            <div class="lang-level-badge" data-i18n="lang_it_lvl">Madrelingua</div>
+          </div>
+          <p class="lang-detail" data-i18n="lang_it_note">Lingua madre utilizzata in ambito professionale, accademico e relazionale.</p>
+        </div>
+
+        <!-- English -->
+        <div class="lang-card">
+          <div class="lang-header">
+            <div class="lang-flag-name">Inglese 🇬🇧</div>
+            <div class="lang-level-badge">B2 — Upper Int</div>
+          </div>
+          <p class="lang-detail" data-i18n="lang_en_note">
+            Cambridge Assessment English · Punteggio 158/160 (2021)<br>
+            Idoneità linguistica accademica conseguita presso l'Università di Pisa (2023).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER & CONTATTI ─── -->
   <footer id="contact">
-    <p style="font-family:var(--heading-font);font-size:1.5rem;margin-bottom:1rem;" data-i18n="footer_title">
-      Hai un progetto in mente?
-    </p>
-    <p style="margin-bottom:1.5rem" data-i18n="footer_contact">
-      Scrivimi a <strong>anthonypepe2004@gmail.com</strong> o chiamami al <strong>+39 320 604 3046</strong>
-    </p>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <span>apepe</span>11
+      </div>
+      <p class="footer-quote" data-i18n="footer_title">Hai un progetto in mente?</p>
+      
+      <div class="footer-contact-details">
+        <a href="mailto:anthonypepe2004@gmail.com" class="footer-contact-link">anthonypepe2004@gmail.com</a>
+        <a href="tel:+393206043046" class="footer-contact-link" style="color: var(--text-secondary); font-size: 0.95rem;">+39 320 604 3046</a>
+      </div>
 
-    <!-- Social Links -->
-    <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; align-items: center;">
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/antonio.html_?igsh=eHozMm5oYjRqYXM0&utm_source=qr" target="_blank" rel="noopener noreferrer" style="color: var(--text); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-      </a>
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/profile.php?id=100081818542246" target="_blank" rel="noopener noreferrer" style="color: var(--text); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-        </svg>
-      </a>
+      <!-- Socials -->
+      <div class="footer-social-links">
+        <a href="https://github.com/apepe11" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/antonio.html_?igsh=eHozMm5oYjRqYXM0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100081818542246" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+      </div>
+
+      <p class="footer-copyright" data-i18n="footer_copy">
+        © 2026 Antonio Pepe · Tutti i diritti riservati · <br>
+        <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>
+      </p>
     </div>
-
-    <p style="font-size:0.75rem;color:var(--muted)" data-i18n="footer_copy">
-      © 2026 Antonio Pepe · Tutti i diritti riservati ·
-      <em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>
-    </p>
   </footer>
 
 </body>
