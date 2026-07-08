@@ -1,17 +1,10 @@
-/* 
-   ==========================================================================
-   ANTIGRAVITY CYBERPORTFOLIO LOGIC v2.0
-   Author: Antonio Pepe (AI & Data Engineering Student)
-   ========================================================================== 
-*/
 
-// --- Global States ---
+
 let currentLang = 'it';
 let allRepos = [];
 let activeFilter = 'all';
 let searchQuery = '';
 
-// --- Dizionario delle traduzioni ---
 const translations = {
   it: {
     nav_about: "About",
@@ -96,8 +89,7 @@ const translations = {
     
     footer_title: "Hai un progetto in mente?",
     footer_copy: "© 2026 Antonio Pepe · Tutti i diritti riservati · <br><em>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 2016/679</em>",
-    
-    // Fallback descriptions for cards
+
     repo1_desc: "Progetto di tesi triennale. Misura il consumo energetico del protocollo HTTP/3 nelle tre implementazioni principali — <strong>Quiche, OpenSSL e Ngtcp2</strong> — su dispositivi IoT (Raspberry Pi 3B+), con automazione via Otii Arc e analisi statistica in Python.",
     repo2_desc: "App Android che unisce musica e benessere emotivo. Monitora il battito cardiaco tramite smartwatch (Wear OS) e dispositivo EEG per suggerire playlist personalizzate in base allo stato d'umore. Stack: <strong>Kotlin + Jetpack Compose, Flask, PostgreSQL, Docker</strong>.",
     repo3_desc: "Sistema integrato di monitoraggio remoto della salute per l'esame di IoT. Nodi sensori <strong>Contiki-NG</strong> raccolgono frequenza cardiaca e saturazione O₂ via CoAP, un backend Python salva su MySQL e una dashboard Tkinter mostra i dati in tempo reale."
@@ -185,19 +177,16 @@ const translations = {
     
     footer_title: "Have a project in mind?",
     footer_copy: "© 2026 Antonio Pepe · All rights reserved · <br><em>I authorize the processing of my personal data pursuant to Legislative Decree 196/2003 and GDPR 2016/679</em>",
-    
-    // Fallback descriptions for cards
+
     repo1_desc: "Bachelor thesis project. Measures the energy consumption of the HTTP/3 protocol across three main implementations — <strong>Quiche, OpenSSL, and Ngtcp2</strong> — on IoT devices (Raspberry Pi 3B+), automated via Otii Arc and statistically analyzed in Python.",
     repo2_desc: "Android app bridging music and emotional well-being. Monitors heart rate via smartwatch (Wear OS) and EEG device to suggest personalized playlists based on mood. Stack: <strong>Kotlin + Jetpack Compose, Flask, PostgreSQL, Docker</strong>.",
     repo3_desc: "Integrated remote health monitoring system for the IoT exam. <strong>Contiki-NG</strong> sensor nodes collect heart rate and O₂ saturation via CoAP; a Python backend saves data to MySQL, and a Tkinter dashboard displays real-time data."
   }
 };
 
-// --- Language Switcher Function ---
 function setLang(lang) {
   currentLang = lang;
-  
-  // Update texts with data-i18n
+
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
     if (translations[lang][key]) {
@@ -205,7 +194,6 @@ function setLang(lang) {
     }
   });
 
-  // Update input placeholders with data-i18n-placeholder
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     const key = element.getAttribute("data-i18n-placeholder");
     if (translations[lang][key]) {
@@ -213,10 +201,8 @@ function setLang(lang) {
     }
   });
 
-  // Update HTML lang attribute for SEO and Accessibility
   document.documentElement.lang = lang;
 
-  // Toggle active styling on buttons
   const btnIt = document.getElementById("btn-it");
   const btnEn = document.getElementById("btn-en");
   
@@ -227,12 +213,10 @@ function setLang(lang) {
     btnEn.classList.add("active");
     btnIt.classList.remove("active");
   }
-  
-  // Re-render repositories to update the descriptions and "no results found" string
+
   renderRepos(activeFilter, searchQuery);
 }
 
-// --- Typewriter Effect ---
 const typewriterStrings = {
   it: ["Ingegnere Informatico", "Studente AI & Data Engineering", "Sviluppatore Open Source"],
   en: ["Computer Engineer", "AI & Data Engineering Student", "Open Source Developer"]
@@ -260,18 +244,17 @@ function runTypewriter() {
   let typingSpeed = isDeleting ? 30 : 80;
   
   if (!isDeleting && charIdx === fullText.length) {
-    typingSpeed = 2000; // Hold at the end of string
+    typingSpeed = 2000; 
     isDeleting = true;
   } else if (isDeleting && charIdx === 0) {
     isDeleting = false;
     typewriterIdx = (typewriterIdx + 1) % strings.length;
-    typingSpeed = 500; // Delay before typing next string
+    typingSpeed = 500; 
   }
   
   typewriterTimeout = setTimeout(runTypewriter, typingSpeed);
 }
 
-// --- Interactive Particle System (Canvas) ---
 function initParticles() {
   const canvas = document.getElementById('particles-canvas');
   if (!canvas) return;
@@ -327,8 +310,7 @@ function initParticles() {
       if (this.y > canvas.height || this.y < 0) {
         this.dy = -this.dy;
       }
-      
-      // Mouse magnetic effect
+
       let mx = mouse.x - this.x;
       let my = mouse.y - this.y;
       let distance = Math.sqrt(mx * mx + my * my);
@@ -399,7 +381,6 @@ function initParticles() {
   animate();
 }
 
-// --- Cursor Background Backlight Glow ---
 function initCursorGlow() {
   const glow = document.getElementById('cursor-glow');
   if (!glow) return;
@@ -410,12 +391,11 @@ function initCursorGlow() {
   });
 }
 
-// --- Fallback Repositories (If API Rate-limited or Fails) ---
 const fallbackRepos = [
   {
     name: "ValuationEneryConsumptionVariousVersionsHTTP3",
     html_url: "https://github.com/apepe11/ValuationEneryConsumptionVariousVersionsHTTP3",
-    description: "", // Fetched dynamically from translations
+    description: "", 
     language: "Python",
     stargazers_count: 0,
     forks_count: 0
@@ -438,15 +418,13 @@ const fallbackRepos = [
   }
 ];
 
-// --- Create Repo Card Node ---
 function createRepoCard(repo) {
   const card = document.createElement('a');
   card.className = 'repo-card';
   card.href = repo.html_url;
   card.target = '_blank';
   card.rel = 'noopener noreferrer';
-  
-  // Custom language colors
+
   const langColors = {
     Python: '#3572A5',
     Kotlin: '#A97BFF',
@@ -462,8 +440,7 @@ function createRepoCard(repo) {
   
   const color = langColors[repo.language] || '#71717a';
   const repoLang = repo.language || 'Code';
-  
-  // Match icon by project name keywords
+
   let icon = '📂';
   if (repo.name.toLowerCase().includes('http3') || repo.name.toLowerCase().includes('energy') || repo.name.toLowerCase().includes('valua')) {
     icon = '⚡';
@@ -474,8 +451,7 @@ function createRepoCard(repo) {
   } else if (repo.name.toLowerCase().includes('web') || repo.name.toLowerCase().includes('github.io')) {
     icon = '🌐';
   }
-  
-  // Check translation fallback for description
+
   let description = repo.description || '';
   if (repo.name === 'ValuationEneryConsumptionVariousVersionsHTTP3') {
     description = translations[currentLang].repo1_desc;
@@ -519,14 +495,12 @@ function createRepoCard(repo) {
   return card;
 }
 
-// --- Render Repos to HTML ---
 function renderRepos(filterLang = 'all', searchTxt = '') {
   const container = document.getElementById('repos-container');
   if (!container) return;
   
   let filtered = allRepos;
-  
-  // Filter by Language button
+
   if (filterLang !== 'all') {
     if (filterLang === 'C') {
       filtered = filtered.filter(repo => repo.language === 'C' || repo.language === 'C++');
@@ -534,12 +508,11 @@ function renderRepos(filterLang = 'all', searchTxt = '') {
       filtered = filtered.filter(repo => repo.language === filterLang);
     }
   }
-  
-  // Filter by search bar
+
   if (searchTxt.trim() !== '') {
     const query = searchTxt.toLowerCase().trim();
     filtered = filtered.filter(repo => {
-      // Find descriptions
+      
       let desc = repo.description || '';
       if (repo.name === 'ValuationEneryConsumptionVariousVersionsHTTP3') desc = translations[currentLang].repo1_desc;
       else if (repo.name === 'HeartMusic') desc = translations[currentLang].repo2_desc;
@@ -565,7 +538,6 @@ function renderRepos(filterLang = 'all', searchTxt = '') {
   });
 }
 
-// --- Load GitHub profile stats ---
 async function loadGitHubStats() {
   try {
     const res = await fetch('https://api.github.com/users/apepe11');
@@ -577,7 +549,7 @@ async function loadGitHubStats() {
         document.getElementById('profile-avatar').src = data.avatar_url;
       }
     } else {
-      // Fallback display values
+      
       document.getElementById('hud-followers-count').textContent = '10+';
       document.getElementById('hud-repos-count').textContent = '14';
     }
@@ -587,13 +559,12 @@ async function loadGitHubStats() {
   }
 }
 
-// --- Fetch Public Repos from GitHub ---
 async function loadGitHubRepos() {
   try {
     const res = await fetch('https://api.github.com/users/apepe11/repos?sort=pushed&per_page=100');
     if (res.ok) {
       const data = await res.json();
-      // Remove forks and index page
+      
       allRepos = data.filter(repo => !repo.fork && repo.name !== 'apepe11.github.io');
       if (allRepos.length === 0) {
         allRepos = fallbackRepos;
@@ -607,26 +578,22 @@ async function loadGitHubRepos() {
   renderRepos(activeFilter, searchQuery);
 }
 
-// --- Navigation Hamburger & Scroll Effects ---
 function initNavigation() {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
   const navbar = document.getElementById('navbar');
   const scrollBar = document.getElementById('scroll-bar');
-  
-  // Toggle mobile hamburger
+
   hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
   });
-  
-  // Close menu when links are clicked
+
   document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
     });
   });
-  
-  // Scroll and Navbar progress
+
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -646,7 +613,6 @@ function initNavigation() {
   });
 }
 
-// --- Project Controls (Search & Language Filters) ---
 function initProjectControls() {
   const searchInput = document.getElementById('repo-search');
   const filterBtns = document.querySelectorAll('#repo-filters .filter-btn');
@@ -668,11 +634,9 @@ function initProjectControls() {
   });
 }
 
-// --- Scroll Reveal Animations ---
 function initScrollReveal() {
   const revealElements = document.querySelectorAll('.skills-panel, .edu-item, .cert-card, .exp-card, .lang-card, .metric-card');
-  
-  // Apply initial fade-down styling programmatically for progressive enhancement (clean fallback when JS disabled)
+
   revealElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
@@ -697,21 +661,17 @@ function initScrollReveal() {
   });
 }
 
-// --- Initialize Entire Portfolio App ---
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initCursorGlow();
   initParticles();
   runTypewriter();
   initProjectControls();
-  
-  // Fetch profiles & repos asynchronously
+
   loadGitHubStats();
   loadGitHubRepos();
-  
-  // Active scroll reveals
+
   initScrollReveal();
-  
-  // Default system print inside console
+
   console.log("%cANTIGRAVITY SYSTEM BOOT SUCCESSFUL.", "color: #00f2fe; font-weight: bold; font-size: 14px;");
 });

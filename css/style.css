@@ -1,15 +1,9 @@
-/* 
-   ==========================================================================
-   ANTIGRAVITY CYBERPORTFOLIO SYSTEM v2.0
-   Design: Futuristic, Professional, High-Tech, Cyberpunk
-   Target: Antonio Pepe — AI & Data Engineering Student @ UniPi
-   ========================================================================== 
-*/
+
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Futuristic Color System */
+  
   --bg-dark: #05050a;
   --bg-space: #070714;
   --surface-glass: rgba(13, 14, 28, 0.65);
@@ -17,37 +11,31 @@
   --border-glass: rgba(255, 255, 255, 0.05);
   --border-neon-cyan: rgba(0, 242, 254, 0.15);
   --border-neon-purple: rgba(124, 58, 237, 0.15);
-  
-  /* Accent Colors */
+
   --cyber-cyan: #00f2fe;
   --cyber-purple: #7c3aed;
   --cyber-pink: #ff007f;
   --cyber-blue: #3b82f6;
   --cyber-emerald: #10b981;
   --cyber-amber: #f59e0b;
-  
-  /* Text System */
+
   --text-main: #f3f4f6;
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
-  
-  /* Glow Effects */
+
   --glow-cyan: 0 0 15px rgba(0, 242, 254, 0.4);
   --glow-purple: 0 0 15px rgba(124, 58, 237, 0.4);
   --glow-pink: 0 0 15px rgba(255, 0, 127, 0.4);
   --glow-text-cyan: 0 0 8px rgba(0, 242, 254, 0.5);
-  
-  /* Fonts */
+
   --font-heading: 'Space Grotesk', -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  
-  /* Spacing & Utilities */
+
   --transition-speed: 0.3s;
   --transition-elastic: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ─── RESET & BASE STYLES ─── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -68,7 +56,6 @@ body {
   line-height: 1.6;
 }
 
-/* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -85,13 +72,11 @@ body {
   box-shadow: var(--glow-cyan);
 }
 
-/* Selection */
 ::selection {
   background: rgba(0, 242, 254, 0.25);
   color: var(--cyber-cyan);
 }
 
-/* ─── GLOBAL DECORATIONS (CYBERGRID & RADIAL GLOWS) ─── */
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -142,7 +127,6 @@ body {
   100% { transform: translateY(50px) scale(1.1); }
 }
 
-/* Interactive Cursor Backlight */
 #cursor-glow {
   position: fixed;
   width: 300px;
@@ -155,7 +139,6 @@ body {
   transition: width 0.3s, height 0.3s;
 }
 
-/* Background Particle Canvas */
 #particles-canvas {
   position: fixed;
   top: 0;
@@ -166,7 +149,6 @@ body {
   pointer-events: none;
 }
 
-/* Scroll Progress Bar */
 .scroll-progress-container {
   position: fixed;
   top: 0;
@@ -183,7 +165,6 @@ body {
   box-shadow: var(--glow-cyan);
 }
 
-/* ─── NAVIGATION BAR (STEADY GLASS) ─── */
 nav {
   position: fixed;
   top: 0;
@@ -265,7 +246,6 @@ nav ul a:hover::after {
   width: 100%;
 }
 
-/* Language Switcher */
 .lang-switch {
   display: flex;
   align-items: center;
@@ -300,7 +280,6 @@ nav ul a:hover::after {
   font-size: 0.75rem;
 }
 
-/* Hamburger Menu Toggle */
 .hamburger-toggle {
   display: none;
   background: none;
@@ -309,7 +288,6 @@ nav ul a:hover::after {
   cursor: pointer;
 }
 
-/* ─── HERO SECTION ─── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -424,7 +402,6 @@ nav ul a:hover::after {
   margin-bottom: 3rem;
 }
 
-/* BUTTONS */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -493,7 +470,6 @@ nav ul a:hover::after {
   transform: translateY(-2px);
 }
 
-/* Cyber Chips Grid */
 .hero-stats-chips {
   display: flex;
   flex-wrap: wrap;
@@ -528,7 +504,6 @@ nav ul a:hover::after {
   color: var(--cyber-cyan);
 }
 
-/* Hero Right Column: Avatar Hud Dashboard */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -545,7 +520,6 @@ nav ul a:hover::after {
   align-items: center;
 }
 
-/* Rotating outer dashboard rings */
 .hud-ring {
   position: absolute;
   border-radius: 50%;
@@ -610,7 +584,6 @@ nav ul a:hover::after {
   transform: scale(1.08);
 }
 
-/* Scanner line overlay */
 .avatar-scanner {
   position: absolute;
   top: 0;
@@ -631,7 +604,6 @@ nav ul a:hover::after {
   100% { top: 100%; opacity: 0; }
 }
 
-/* Floating stats metrics */
 .hud-stat {
   position: absolute;
   background: rgba(10, 10, 20, 0.85);
@@ -671,7 +643,6 @@ nav ul a:hover::after {
   50% { transform: translateY(-8px); }
 }
 
-/* Scrollhint */
 .scroll-hint {
   position: absolute;
   bottom: 2rem;
@@ -721,7 +692,6 @@ nav ul a:hover::after {
   100% { top: 16px; opacity: 0; }
 }
 
-/* ─── SECTION STYLING ─── */
 section {
   padding: 6rem 4rem;
   max-width: 1200px;
@@ -761,7 +731,6 @@ section {
   letter-spacing: -0.01em;
 }
 
-/* ─── CHISONO (ABOUT) ─── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -786,7 +755,6 @@ section {
   font-weight: 500;
 }
 
-/* Terminal Component inside About */
 .terminal-window {
   background: #080914;
   border: 1px solid var(--border-neon-purple);
@@ -853,7 +821,6 @@ section {
   color: var(--cyber-cyan);
 }
 
-/* Stats Cards Container inside About */
 .stats-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -906,7 +873,6 @@ section {
   letter-spacing: 0.05em;
 }
 
-/* ─── SKILLS SECTION ─── */
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -973,7 +939,6 @@ section {
   transform: scale(1.03);
 }
 
-/* ─── EDUCATION (PATHWAY) ─── */
 .edu-timeline {
   position: relative;
   max-width: 800px;
@@ -1092,7 +1057,6 @@ section {
 .edu-badge-cyan { background: rgba(0, 242, 254, 0.08); color: var(--cyber-cyan); border: 1px solid rgba(0, 242, 254, 0.15); }
 .edu-badge-purple { background: rgba(124, 58, 237, 0.08); color: var(--cyber-purple); border: 1px solid rgba(124, 58, 237, 0.15); }
 
-/* ─── DYNAMIC GITHUB PROJECTS SECTION ─── */
 .projects-controls {
   display: flex;
   justify-content: space-between;
@@ -1167,7 +1131,6 @@ section {
   font-weight: 600;
 }
 
-/* Repo cards grid */
 .repos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
@@ -1325,7 +1288,6 @@ section {
   color: var(--cyber-cyan);
 }
 
-/* Skeleton Loading State for Repos */
 .skeleton-card {
   background: rgba(13, 14, 28, 0.35);
   border: 1px solid var(--border-glass);
@@ -1366,7 +1328,6 @@ section {
 .skeleton-lang { width: 30%; height: 12px; background: rgba(255, 255, 255, 0.02); border-radius: 4px; }
 .skeleton-stats { width: 40%; height: 12px; background: rgba(255, 255, 255, 0.02); border-radius: 4px; }
 
-/* ─── CERTIFICATIONS & CREDENTIALS ─── */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1423,7 +1384,6 @@ section {
   line-height: 1.5;
 }
 
-/* ─── EXPERIENCES ( lifeguard card ) ─── */
 .exp-card {
   background: var(--surface-glass);
   border: 1px solid var(--border-glass);
@@ -1486,7 +1446,6 @@ section {
   color: var(--text-main);
 }
 
-/* ─── LANGUAGES ─── */
 .langs-container {
   display: flex;
   gap: 2rem;
@@ -1548,7 +1507,6 @@ section {
   line-height: 1.6;
 }
 
-/* ─── FOOTER & CONTACT CONSOLE ─── */
 footer {
   background: #030308;
   border-top: 1px solid var(--border-glass);
@@ -1652,7 +1610,6 @@ footer {
   font-size: 0.7rem;
 }
 
-/* ─── RESPONSIVE RULES ─── */
 @media screen and (max-width: 1024px) {
   nav {
     padding: 1.25rem 2rem;
@@ -1672,7 +1629,7 @@ footer {
 }
 
 @media screen and (max-width: 850px) {
-  /* Hamburger responsive menu trigger */
+  
   .hamburger-toggle {
     display: block;
   }
@@ -1716,7 +1673,7 @@ footer {
   }
   
   .hero-visual {
-    order: -1; /* Place avatar above text on mobile */
+    order: -1; 
   }
   
   .about-grid {
