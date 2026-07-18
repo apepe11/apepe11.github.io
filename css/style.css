@@ -475,6 +475,7 @@ nav ul a:hover::after {
   flex-wrap: wrap;
   gap: 0.75rem;
   width: 100%;
+  max-width: 440px;
 }
 
 .cyber-chip {
@@ -658,6 +659,12 @@ nav ul a:hover::after {
 }
 
 .scroll-hint:hover { opacity: 1; }
+
+@media screen and (max-height: 750px) {
+  .scroll-hint {
+    display: none;
+  }
+}
 
 .scroll-hint span {
   font-family: var(--font-mono);
@@ -1625,6 +1632,9 @@ footer {
   }
   section {
     padding: 5rem 2rem;
+  }
+  .scroll-hint {
+    display: none;
   }
 }
 
