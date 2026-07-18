@@ -1672,6 +1672,10 @@ footer {
     justify-content: center;
   }
   
+  .scroll-hint {
+    display: none;
+  }
+  
   .hero-visual {
     order: -1; 
   }
