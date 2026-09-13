@@ -47,10 +47,17 @@
       <li><a href="#projects" data-i18n="nav_repo">GitHub Repo</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
       <li>
-        <div class="lang-switch">
-          <button onclick="setLang('it')" class="lang-btn active" id="btn-it">IT</button>
-          <span class="lang-separator">|</span>
-          <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+        <div class="nav-controls-wrap">
+          <div class="theme-switch" id="theme-switch" role="group" aria-label="Theme selection">
+            <button class="theme-dot theme-dot-cyber active" onclick="setTheme('cyber')" title="Cyber Cyan & Purple" aria-label="Cyber Theme"></button>
+            <button class="theme-dot theme-dot-matrix" onclick="setTheme('matrix')" title="Matrix Green" aria-label="Matrix Theme"></button>
+            <button class="theme-dot theme-dot-mars" onclick="setTheme('mars')" title="Mars Neon" aria-label="Mars Theme"></button>
+          </div>
+          <div class="lang-switch">
+            <button onclick="setLang('it')" class="lang-btn active" id="btn-it">IT</button>
+            <span class="lang-separator">|</span>
+            <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+          </div>
         </div>
       </li>
     </ul>
@@ -78,9 +85,8 @@
         </div>
         
         <p class="hero-description" data-i18n="hero_subtitle">
-          Laureato in Ingegneria Informatica all'Università di Pisa, attualmente sto frequentando il corso magistrale in
-          <strong>Artificial Intelligence &amp; Data Engineering</strong>. Appassionato di innovazione tecnologica,
-          AI e sistemi distribuiti.
+          Sono laureato in Ingegneria Informatica all'Università di Pisa. Attualmente sto frequentando il corso di laurea in
+          <strong>Artificial Intelligence &amp; Data Engineering</strong>.
         </p>
         
         <div class="hero-buttons">
@@ -95,10 +101,6 @@
         </div>
         
         <div class="hero-stats-chips">
-          <a href="mailto:anthonypepe2004@gmail.com" class="cyber-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            anthonypepe2004@gmail.com
-          </a>
           <div class="cyber-chip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Paterno di Lucania, PZ
@@ -135,21 +137,17 @@
     <section id="about">
       <div class="section-header">
         <div class="section-subtitle" data-i18n="about_label">Chi sono</div>
-        <h2 class="section-title" data-i18n="about_title">Profilo Professionale</h2>
+        <h2 class="section-title" data-i18n="about_title">WHOAMI </h2>
       </div>
       
       <div class="about-grid">
         <div class="about-text">
           <p data-i18n="about_p1">
-            Laureato in <strong>Ingegneria Informatica</strong> presso l'Università di Pisa, ho sviluppato solide competenze nello sviluppo software, architetture cloud e sistemi di gestione dati.
+           Ho sviluppato solide competenze nello sviluppo software, architetture cloud e sistemi di gestione dati.
           </p>
-          <p data-i18n="about_p2">
-            Attualmente sto approfondendo la mia specializzazione nel corso magistrale in
-            <strong>Artificial Intelligence and Data Engineering (AIDE)</strong> presso lo stesso Ateneo,
-            con focus su intelligenza artificiale, analisi avanzata dei dati e sistemi software complessi.
-          </p>
+
           <p data-i18n="about_p3">
-            Unisco una profonda passione per l'<strong>innovazione tecnologica</strong> ad eccellenti capacità di problem solving e una forte attitudine al lavoro di squadra, maturate sia in contesti progettuali complessi che in esperienze dinamiche sul campo.
+            Unisco una profonda passione per l'<strong>innovazione tecnologica</strong> ad eccellenti capacità di problem solving e una forte attitudine al lavoro di squadra, maturate sia in contesti progettuali complessi che in esperienza sul campo.
           </p>
 
           <div class="stats-cards-grid">
@@ -164,10 +162,6 @@
             <div class="metric-card">
               <div class="metric-num">B2</div>
               <div class="metric-lbl" data-i18n="stat_english">Cambridge English</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-num">100%</div>
-              <div class="metric-lbl" data-i18n="stat_passion">Passione AI & IoT</div>
             </div>
           </div>
         </div>
@@ -217,15 +211,16 @@
         <div class="skills-panel">
           <div class="panel-header">
             <span class="panel-icon">🤖</span>
-            <h3 class="panel-title" data-i18n="skill_ai">Intelligenza Artificiale</h3>
+            <h3 class="panel-title" data-i18n="skill_ai">Conoscenze Magistrali</h3>
           </div>
           <div class="skills-tags-wrap">
-            <span class="cyber-tag">Machine Learning</span>
-            <span class="cyber-tag">Data Engineering</span>
-            <span class="cyber-tag">LLM Integration</span>
+            <span class="cyber-tag">Cloud Computing</span>
+            <span class="cyber-tag">Hadoop</span>
+            <span class="cyber-tag">Spark</span>
+            <span class="cyber-tag">Sviluppo in Kotlin</span>
+            <span class="cyber-tag">Reti per sensori IoT (IPv6, protocolli vari) </span>
+            <span class="cyber-tag">Sviluppo in Cooja di reti di sensori</span>
             <span class="cyber-tag">Prompt Engineering</span>
-            <span class="cyber-tag">Neural Networks</span>
-            <span class="cyber-tag">Data Pipelines</span>
           </div>
         </div>
 
@@ -255,11 +250,9 @@
           <div class="skills-tags-wrap">
             <span class="cyber-tag">MySQL</span>
             <span class="cyber-tag">PostgreSQL</span>
-            <span class="cyber-tag">Cloud Computing</span>
-            <span class="cyber-tag" data-i18n="skill_algo">Algoritmi &amp; ASD</span>
+            <span class="cyber-tag" data-i18n="skill_algo">Algoritmi e strutture dati</span>
             <span class="cyber-tag" data-i18n="skill_net">Reti Informatiche</span>
-            <span class="cyber-tag">Docker</span>
-            <span class="cyber-tag">Flask backend</span>
+            <span class="cyber-tag">Docker e Docker Compose</span>
           </div>
         </div>
 
@@ -289,6 +282,7 @@
             <span class="cyber-tag">Git &amp; GitHub</span>
             <span class="cyber-tag">Windows OS</span>
             <span class="cyber-tag">macOS</span>
+            <span class="cyber-tag">Linux Ubuntu</span>
             <span class="cyber-tag">VS Code</span>
             <span class="cyber-tag">Microsoft Office</span>
           </div>
@@ -474,7 +468,25 @@
     <section id="experiences">
       <div class="section-header">
         <div class="section-subtitle" data-i18n="exp_label">Esperienze</div>
-        <h2 class="section-title" data-i18n="exp_title">Esperienza Complementare</h2>
+        <h2 class="section-title" data-i18n="exp_title">Esperienze Lavorative</h2>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-badge-icon">💻</div>
+        <div class="exp-info">
+          <h3 data-i18n="exp_dev_job">Sviluppo gestionale con AI</h3>
+          <div class="exp-place" data-i18n="exp_dev_where">Caseificio Petruzzi Andrea S.r.l.</div>
+          <p class="exp-desc" data-i18n="exp_dev_desc">
+            Progettazione e sviluppo di un software gestionale full-stack realizzato con <strong>React</strong> e <strong>SQLite</strong>. Il sistema integra le API di <strong>Google Gemini</strong> per l'analisi intelligente e l'estrazione automatica dei dati degli ordini, interfacciandosi con <strong>Evolution API</strong> per la gestione e ricezione automatizzata delle comunicazioni via WhatsApp.
+          </p>
+          <div class="badge-wrap">
+            <span class="edu-badge edu-badge-cyan">React</span>
+            <span class="edu-badge edu-badge-purple">SQLite</span>
+            <span class="edu-badge edu-badge-cyan">Google Gemini</span>
+            <span class="edu-badge edu-badge-purple">Evolution API</span>
+            <span class="edu-badge edu-badge-cyan" data-i18n="badge_order_analysis">Analisi Ordini AI</span>
+          </div>
+        </div>
       </div>
 
       <div class="exp-card">

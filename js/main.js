@@ -8,6 +8,7 @@ let searchQuery = '';
 const translations = {
   it: {
     nav_about: "About",
+    nav_now: "Now",
     nav_skills: "Skills",
     nav_education: "Formazione",
     nav_repo: "GitHub Repo",
@@ -74,12 +75,16 @@ const translations = {
     cert_game_desc: "Progetti PON focalizzati sul pensiero computazionale applicato e progettazione algoritmica (120 ore, 2019-2021)",
     
     exp_label: "Esperienze",
-    exp_title: "Esperienza Complementare",
+    exp_title: "Esperienze Lavorative",
+    exp_dev_job: "Sviluppo gestionale con AI",
+    exp_dev_where: "Caseificio Petruzzi Andrea S.r.l.",
+    exp_dev_desc: "Progettazione e sviluppo di un software gestionale full-stack realizzato con <strong>React</strong> e <strong>SQLite</strong>. Il sistema integra le API di <strong>Google Gemini</strong> per l'analisi intelligente e l'estrazione automatica dei dati degli ordini, interfacciandosi con <strong>Evolution API</strong> per la gestione e ricezione automatizzata delle comunicazioni via WhatsApp.",
     exp_job: "Bagnino di Salvataggio",
     exp_where: "Hotel Kiris (SA.TRO S.R.L.) · Viggiano · Stagioni Estive 2021–2025",
     exp_desc: "Brevetto ufficiale della Società Nazionale di Salvamento con abilitazione <strong>BLS-AED</strong> (Rianimazione e Defibrillazione). Esperienza fondamentale per lo sviluppo di competenze relazionali e critiche: gestione avanzata dello stress, tempestività decisionale in situazioni d'emergenza, vigilanza attiva e alto senso di responsabilità.",
     badge_bls: "BLS-AED Certificato",
     badge_emerg: "Gestione Emergenze",
+    badge_order_analysis: "Analisi Ordini AI",
     
     lang_label: "Lingue",
     lang_title: "Competenze Linguistiche",
@@ -92,10 +97,30 @@ const translations = {
 
     repo1_desc: "Progetto di tesi triennale. Misura il consumo energetico del protocollo HTTP/3 nelle tre implementazioni principali — <strong>Quiche, OpenSSL e Ngtcp2</strong> — su dispositivi IoT (Raspberry Pi 3B+), con automazione via Otii Arc e analisi statistica in Python.",
     repo2_desc: "App Android che unisce musica e benessere emotivo. Monitora il battito cardiaco tramite smartwatch (Wear OS) e dispositivo EEG per suggerire playlist personalizzate in base allo stato d'umore. Stack: <strong>Kotlin + Jetpack Compose, Flask, PostgreSQL, Docker</strong>.",
-    repo3_desc: "Sistema integrato di monitoraggio remoto della salute per l'esame di IoT. Nodi sensori <strong>Contiki-NG</strong> raccolgono frequenza cardiaca e saturazione O₂ via CoAP, un backend Python salva su MySQL e una dashboard Tkinter mostra i dati in tempo reale."
+    repo3_desc: "Sistema integrato di monitoraggio remoto della salute per l'esame di IoT. Nodi sensori <strong>Contiki-NG</strong> raccolgono frequenza cardiaca e saturazione O₂ via CoAP, un backend Python salva su MySQL e una dashboard Tkinter mostra i dati in tempo reale.",
+
+    now_label: "Focus Attuale",
+    now_title: "Cosa sto facendo ora / Now",
+    now_status: "In attività · Laurea Magistrale @ UniPi",
+    now_study_title: "Formazione Magistrale",
+    now_study_desc: "Laurea Magistrale in <strong>Artificial Intelligence &amp; Data Engineering (AIDE)</strong> all'Università di Pisa. Approfondimento su Cloud Computing, Big Data (Spark, Hadoop), architetture neurali e sistemi distribuiti.",
+    now_dev_title: "Sviluppo &amp; AI Applicata",
+    now_dev_desc: "Sviluppo di applicazioni con <strong>React, SQLite</strong> e integrazione avanzata di modelli multimodali <strong>Google Gemini</strong> e automazione flussi via <strong>Evolution API</strong>.",
+    now_explore_title: "Ricerca &amp; Protocolli",
+    now_explore_desc: "Studio e benchmarking su protocolli di rete di nuova generazione (HTTP/3, QUIC) su dispositivi embedded e simulazione di reti di sensori IoT con Cooja e Contiki-NG.",
+    now_location_title: "Posizione &amp; Opportunità",
+    now_location_desc: "Pisa / Basilicata · Aperto a collaborazioni tecniche stimolanti, progetti innovativi e opportunità professionali in ambito AI &amp; Software Engineering (in sede o da remoto).",
+
+    gh_live_label: "Attività Live",
+    gh_activity_title: "Contributi GitHub &amp; Statistiche",
+    gh_stat_repos: "Repository Pubbliche",
+    gh_stat_followers: "Follower",
+    gh_stat_top_lang: "Linguaggi Principali",
+    gh_stat_stars: "Stelle Totali"
   },
   en: {
     nav_about: "About",
+    nav_now: "Now",
     nav_skills: "Skills",
     nav_education: "Education",
     nav_repo: "GitHub Repos",
@@ -162,12 +187,16 @@ const translations = {
     cert_game_desc: "PON projects focusing on applied computational thinking and algorithmic design (120 hours, 2019-2021)",
     
     exp_label: "Experience",
-    exp_title: "Complementary Experience",
+    exp_title: "Work Experience",
+    exp_dev_job: "AI-Powered Management Software Development",
+    exp_dev_where: "Caseificio Petruzzi Andrea S.r.l.",
+    exp_dev_desc: "Design and development of a full-stack management software built with <strong>React</strong> and <strong>SQLite</strong>. The system integrates <strong>Google Gemini</strong> for intelligent parsing and analysis of customer orders, connecting with <strong>Evolution API</strong> to automate WhatsApp messaging and order intake workflows.",
     exp_job: "Lifeguard",
     exp_where: "Hotel Kiris (SA.TRO S.R.L.) · Viggiano · Summer Seasons 2021–2025",
     exp_desc: "Official license of the National Lifesaving Society with <strong>BLS-AED</strong> qualification (Resuscitation and Defibrillation). Key experience for developing interpersonal and critical skills: advanced stress management, timely decision-making in emergency situations, active vigilance, and a high sense of responsibility.",
     badge_bls: "BLS-AED Certified",
     badge_emerg: "Emergency Management",
+    badge_order_analysis: "AI Order Analysis",
     
     lang_label: "Languages",
     lang_title: "Language Proficiency",
@@ -180,7 +209,26 @@ const translations = {
 
     repo1_desc: "Bachelor thesis project. Measures the energy consumption of the HTTP/3 protocol across three main implementations — <strong>Quiche, OpenSSL, and Ngtcp2</strong> — on IoT devices (Raspberry Pi 3B+), automated via Otii Arc and statistically analyzed in Python.",
     repo2_desc: "Android app bridging music and emotional well-being. Monitors heart rate via smartwatch (Wear OS) and EEG device to suggest personalized playlists based on mood. Stack: <strong>Kotlin + Jetpack Compose, Flask, PostgreSQL, Docker</strong>.",
-    repo3_desc: "Integrated remote health monitoring system for the IoT exam. <strong>Contiki-NG</strong> sensor nodes collect heart rate and O₂ saturation via CoAP; a Python backend saves data to MySQL, and a Tkinter dashboard displays real-time data."
+    repo3_desc: "Integrated remote health monitoring system for the IoT exam. <strong>Contiki-NG</strong> sensor nodes collect heart rate and O₂ saturation via CoAP; a Python backend saves data to MySQL, and a Tkinter dashboard displays real-time data.",
+
+    now_label: "Current Focus",
+    now_title: "What I'm Doing Now",
+    now_status: "Active · Master's Degree @ UniPi",
+    now_study_title: "Master's Specialization",
+    now_study_desc: "Master's Degree in <strong>Artificial Intelligence &amp; Data Engineering (AIDE)</strong> at University of Pisa. Deepening Cloud Computing, Big Data (Spark, Hadoop), neural architectures, and distributed systems.",
+    now_dev_title: "Software &amp; Applied AI",
+    now_dev_desc: "Developing full-stack apps with <strong>React, SQLite</strong> and integrating multimodal models like <strong>Google Gemini</strong> with workflow automation via <strong>Evolution API</strong>.",
+    now_explore_title: "Research &amp; Protocols",
+    now_explore_desc: "Investigation and benchmarking of next-gen network protocols (HTTP/3, QUIC) on embedded hardware, and IoT sensor network simulations with Cooja &amp; Contiki-NG.",
+    now_location_title: "Location &amp; Availability",
+    now_location_desc: "Pisa / Basilicata (Italy) · Open to innovative technical collaborations, cutting-edge projects, and AI/Software engineering opportunities (hybrid or remote).",
+
+    gh_live_label: "Live Activity",
+    gh_activity_title: "GitHub Contributions &amp; Live Stats",
+    gh_stat_repos: "Public Repos",
+    gh_stat_followers: "Followers",
+    gh_stat_top_lang: "Top Languages",
+    gh_stat_stars: "Total Stars"
   }
 };
 
@@ -216,6 +264,55 @@ function setLang(lang) {
 
   renderRepos(activeFilter, searchQuery);
 }
+
+const themeConfigs = {
+  cyber: {
+    particleColor: 'rgba(0, 242, 254, 0.3)',
+    lineRgb: '124, 58, 237',
+    chartHex: '00f2fe'
+  },
+  matrix: {
+    particleColor: 'rgba(0, 255, 136, 0.35)',
+    lineRgb: '0, 184, 79',
+    chartHex: '00ff88'
+  },
+  mars: {
+    particleColor: 'rgba(255, 51, 102, 0.35)',
+    lineRgb: '255, 107, 53',
+    chartHex: 'ff3366'
+  }
+};
+
+let currentTheme = localStorage.getItem('user-theme') || 'cyber';
+let updateParticleTheme = null;
+
+function setTheme(theme) {
+  if (!themeConfigs[theme]) theme = 'cyber';
+  currentTheme = theme;
+  if (theme === 'cyber') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+  localStorage.setItem('user-theme', theme);
+
+  document.querySelectorAll('.theme-dot').forEach(btn => {
+    btn.classList.toggle('active', btn.classList.contains(`theme-dot-${theme}`));
+  });
+
+  const heatmapImg = document.getElementById('gh-heatmap-img');
+  if (heatmapImg) {
+    const cfg = themeConfigs[theme] || themeConfigs.cyber;
+    heatmapImg.src = `https://ghchart.rshah.org/${cfg.chartHex}/apepe11`;
+  }
+
+  if (typeof updateParticleTheme === 'function') {
+    updateParticleTheme(theme);
+  }
+}
+
+// Initial theme apply
+setTheme(currentTheme);
 
 const typewriterStrings = {
   it: ["Ingegnere Informatico", "Studente AI & Data Engineering", "Sviluppatore Open Source"],
@@ -337,18 +434,26 @@ function initParticles() {
   
   function init() {
     particlesArray = [];
+    const cfg = themeConfigs[currentTheme] || themeConfigs.cyber;
     for (let i = 0; i < numberOfParticles; i++) {
       let size = (Math.random() * 1.5) + 1.2;
       let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
       let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
       let dx = (Math.random() * 0.3) - 0.15;
       let dy = (Math.random() * 0.3) - 0.15;
-      let color = 'rgba(0, 242, 254, 0.3)';
-      particlesArray.push(new Particle(x, y, dx, dy, size, color));
+      particlesArray.push(new Particle(x, y, dx, dy, size, cfg.particleColor));
     }
   }
   
+  updateParticleTheme = function(theme) {
+    const cfg = themeConfigs[theme] || themeConfigs.cyber;
+    particlesArray.forEach(p => {
+      p.color = cfg.particleColor;
+    });
+  };
+  
   function connect() {
+    const cfg = themeConfigs[currentTheme] || themeConfigs.cyber;
     for (let a = 0; a < particlesArray.length; a++) {
       for (let b = a; b < particlesArray.length; b++) {
         let dx = particlesArray[a].x - particlesArray[b].x;
@@ -357,7 +462,7 @@ function initParticles() {
         
         if (distance < 130) {
           let opacity = 1 - (distance / 130);
-          ctx.strokeStyle = `rgba(124, 58, 237, ${opacity * 0.12})`;
+          ctx.strokeStyle = `rgba(${cfg.lineRgb}, ${opacity * 0.12})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -545,17 +650,26 @@ async function loadGitHubStats() {
       const data = await res.json();
       document.getElementById('hud-followers-count').textContent = data.followers;
       document.getElementById('hud-repos-count').textContent = data.public_repos;
+      if (document.getElementById('gh-followers-val')) {
+        document.getElementById('gh-followers-val').textContent = data.followers;
+      }
+      if (document.getElementById('gh-repos-val')) {
+        document.getElementById('gh-repos-val').textContent = data.public_repos;
+      }
       if (data.avatar_url) {
         document.getElementById('profile-avatar').src = data.avatar_url;
       }
     } else {
-      
       document.getElementById('hud-followers-count').textContent = '10+';
       document.getElementById('hud-repos-count').textContent = '14';
+      if (document.getElementById('gh-followers-val')) document.getElementById('gh-followers-val').textContent = '10+';
+      if (document.getElementById('gh-repos-val')) document.getElementById('gh-repos-val').textContent = '14';
     }
   } catch (err) {
     document.getElementById('hud-followers-count').textContent = '10+';
     document.getElementById('hud-repos-count').textContent = '14';
+    if (document.getElementById('gh-followers-val')) document.getElementById('gh-followers-val').textContent = '10+';
+    if (document.getElementById('gh-repos-val')) document.getElementById('gh-repos-val').textContent = '14';
   }
 }
 
@@ -575,6 +689,28 @@ async function loadGitHubRepos() {
   } catch (err) {
     allRepos = fallbackRepos;
   }
+
+  // Populate live GitHub stats
+  const totalStars = allRepos.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
+  if (document.getElementById('gh-stars-val')) {
+    document.getElementById('gh-stars-val').textContent = totalStars > 0 ? totalStars : '6';
+  }
+
+  const langCounts = {};
+  allRepos.forEach(repo => {
+    if (repo.language) {
+      langCounts[repo.language] = (langCounts[repo.language] || 0) + 1;
+    }
+  });
+  const topLangs = Object.entries(langCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([lang]) => lang)
+    .join(' · ');
+  if (document.getElementById('gh-lang-val')) {
+    document.getElementById('gh-lang-val').textContent = topLangs || 'Python · Kotlin · C';
+  }
+
   renderRepos(activeFilter, searchQuery);
 }
 
@@ -635,7 +771,7 @@ function initProjectControls() {
 }
 
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.skills-panel, .edu-item, .cert-card, .exp-card, .lang-card, .metric-card');
+  const revealElements = document.querySelectorAll('.skills-panel, .edu-item, .cert-card, .exp-card, .lang-card, .metric-card, .now-card, .github-activity-panel');
 
   revealElements.forEach(el => {
     el.style.opacity = '0';
@@ -662,6 +798,7 @@ function initScrollReveal() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  setTheme(currentTheme);
   initNavigation();
   initCursorGlow();
   initParticles();
